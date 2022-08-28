@@ -1,0 +1,9 @@
+FROM python:3.9-slim
+
+WORKDIR /Avida-ED-Eco
+
+COPY . .
+
+EXPOSE 8004
+
+CMD ["python3", "-m" , "http.server" , "8004" ]
