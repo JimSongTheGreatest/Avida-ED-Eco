@@ -67,6 +67,8 @@ button {
    display:inline;
    cursor:pointer;
    border-radius: 5px;
+   /* may change later- responsive button design */
+   /* min-width: 4.5vw; */
  }
  
 
@@ -137,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
    margin: 0;
    padding: 0;
    /* cursor: pointer;  */ /* need to delete completely tiba */
-} 
+}
 
 /* trying classe to get headers back to to what they should be 
     hdf# classes were over written by .claro in document.css
@@ -272,10 +274,10 @@ h1, h2, h3, h4, h5, h6 {
  }
  
  .resourceButton {
-   width: 100px
+   width: 100px;
  }
  
- //Tiba tiba needs to delete all dojo and dijit references. 
+ /* Tiba tiba needs to delete all dojo and dijit references.  */
  .dojoDndItem {
    padding: 3px;
  }

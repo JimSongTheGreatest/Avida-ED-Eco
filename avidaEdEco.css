@@ -218,9 +218,9 @@ html {
 
 /* structures in the headerRow */  
 #leftPanelButton{
-    border-radius: 5px 5px 5px 5px;                  /* top-left, top-right, bottom-right, bottom-left */
-    height: 16px;
-    padding: 0px 4px 0px 2px;  /* top right bottom left */
+    border-radius: 5px;                  /* top-left, top-right, bottom-right, bottom-left */
+    /* height: 16px; */
+    padding: 0px 4px 0px 5px;  /* top right bottom left */
     alt: 'button to open/close left panel'; 
     text-align: center;
     vertical-align: middle;
@@ -245,9 +245,9 @@ html {
 }
 
 #ritePanelButton{
-    border-radius: 5px 5px 5px 5px;                  /* top-left, top-right, bottom-right, bottom-left */
-    height: 16px;
-    padding: 0px 4px 0px 2px;  /* top right bottom left */
+    border-radius: 5px;                  /* top-left, top-right, bottom-right, bottom-left */
+    /* height: 16px; */
+    padding: 0px 5px 0px 4px;  /* top right bottom left */
     alt: 'button to open/close right panel'; 
     text-align: center;
     vertical-align: middle;
@@ -376,7 +376,7 @@ html {
     font-size: 13px;
     padding:4px 8px;
     border-radius: 5px;
-    min-width: 82px;
+    min-width: 90px;
   }
 #freezerSection{
   border: 1px solid #BABABA;
@@ -692,6 +692,11 @@ html {
 .popPgFreezeExperimentCls { min-width: 20px;}
 .gridUnderButCls { min-width: 20px; }
 .popPgUnderBotRowRit { min-width: 20px; }
+
+/* buttons under the grid */
+.benchBtns{
+  min-width: 4.5vw;
+}
 
 #avidianOutline { display: none; }
 

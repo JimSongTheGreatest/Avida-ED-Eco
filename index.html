@@ -60,14 +60,14 @@
               <ul>
                 <li>
                   <button class="link-btn navbar-btn btn btn-custom override-nav-btn border-zero" id="mnAvidaEd">Avida-ED </button>
-                  <ul class="submenu dismiss">
+                  <ul class="submenu dismiss aboutMenu">
                     <li> <button id="mnAeAbout" onclick="av.ui.aboutAvidaED('mnAeAbout')">About</button></li>
                     <li><button id="mnAePreferences">Preferences</button></li>
                   </ul>
                 </li>
                 <li>
                   <button class="link-btn navbar-btn btn btn-custom override-nav-btn border-zero" id="mnFile">File </button>
-                  <ul class="submenu dismiss">
+                  <ul class="submenu dismiss fileMenu">
                     <li><button id="mnFlSaveWorkspace">Save Current Workspace</button></li>
                     <li><button id="mnFlSaveAs">Save Workspace As</button></li>
                     <div class="dropdown-divider" href="#"></div>
@@ -83,7 +83,7 @@
                 </li>
                 <li>
                   <button class="link-btn navbar-btn btn btn-custom override-nav-btn border-zero" id="mnFreezer">Freezer </button>
-                  <ul class="submenu dismiss">
+                  <ul class="submenu dismiss freezerMenu">
                     <li><button id="mnFzConfig">Save Current Configuration to Freezer</button></li>
                     <li><button id="mnFzPopulation">Save Current Population to Freezer</button></li>
                     <li><button id="mnFzOrganism">Save Selected Organism to Freezer</button>
@@ -97,7 +97,7 @@
                 </li>
                 <li>
                   <button class="link-btn navbar-btn btn btn-custom override-nav-btn border-zero" id="mnControl">Control</button>
-                  <ul class="submenu dismiss">
+                  <ul class="submenu dismiss controlMenu">
                     <li><button id="mnCnRun">Run</button></li>
                     <li><button id="mnCnPause">Pause</button></li>
                     <li><button id="mnCnOne">Forward (Do one update)</button></li>
@@ -108,18 +108,18 @@
                 </li>
                 <li>
                   <button class="link-btn navbar-btn btn btn-custom override-nav-btn border-zero" id="mnHelp">Help</button>
-                  <ul class="submenu dismiss">
-                     <li><button onclick="av.ui.aboutAvidaED('mnHpAbout')" id="mnHpAbout">About</button></li>
-                    <li><button onclick="window.location='images/Avida-ED_UserManualv3.0.pdf';" style="color: blue"id="mnHpManual">Quick Start Manual</button></li>
-                    <li><button onclick="window.location='cpu_tour.html';" style="color: blue" id="mnHpHardware">Ancestor and Hardware</button></li>
+                  <ul class="submenu dismiss helpMenu">
+                     <li><button onclick="av.ui.aboutAvidaED('mnHpAbout')" id="mnHpAbout">About</button></li>                    
+                    <li><button onclick="window.open('images/Avida-ED_UserManualv3.0.pdf')" style="color: blue"id="mnHpManual">Quick Start Manual</button>
+                    <li><button onclick="window.open('cpu_tour.html')" style="color: blue"id="mnHpHardware">Ancestor and Hardware</button>
                     <li><button style="color: blue" id="mnHpInfo">Avida-ED Home Page</button></li>
-                    <li><button onclick="window.location='short_cuts.html';" style="color: blue" id="mnHpShortCuts">Short Cuts</button></li>
+                    <li><button onclick="window.open('short_cuts.html')" style="color: blue" id="mnHpShortCuts">Short Cuts</button>
                     <li><button onclick="av.ui.feedback('feedback')" id="mnHpFeedback">Send Feedback (please)</button></li>
                   </ul>
                 </li>
                 <li>
                   <button class="link-btn navbar-btn btn btn-custom override-nav-btn border-zero" id="mnDebug">Debug</button>
-                  <ul class="submenu dismiss">
+                  <ul class="submenu dismiss debugMenu">
                     <li><button id="mnDbDadsOnly">Show Parents only on ritYaxis on PopChart</button></li>
                     <li><button id="mnDbThrowError">Throw Error</button></li>
                     <li><button id="mnDbThrowData">Send Data to console</button></li>
@@ -281,13 +281,13 @@
 
                   <div class='popPgUnderBotRow'>
                     <div class='popPgFreezeExperimentCls'>
-                      <button id='freezeButton'>Freeze</button>
-                      <button id='newDishButton' onclick='av.ptd.newDishButton()'>New</button>
+                      <button id='freezeButton' class='benchBtns'>Freeze</button>
+                      <button id='newDishButton' class='benchBtns' onclick='av.ptd.newDishButton()'>New</button>
                     </div>
                     <div id='gridButtons' class='gridUnderButCls'>                      
-                      <button id='runStopButton'>Run</button>
-                      <button id='oneUpdateButton'>Forward</button>
-                      <button id='avidianOutline' class='display_none' onclick='av.ui.avidianOutlineOnclick(this);'>Occupied</button>
+                      <button id='runStopButton' class='benchBtns'>Run</button>
+                      <button id='oneUpdateButton' class='benchBtns'>Forward</button>
+                      <button id='avidianOutline' class='display_none benchBtns' onclick='av.ui.avidianOutlineOnclick(this);'>Occupied</button>
                     </div>
                     <div class='popPgUnderBotRowRit'>
                       <label id='rescaleLabel'>ReTesting</label><br />
@@ -1253,25 +1253,29 @@
        
     </div><span id='allAvidaContainer_end'></span>
 
-    <!-------------- End_AllAvidaContainer_Main_Section -------------->
+<!--------------------------------------- End_AllAvidaContainer_Main_Section ->
 
-    <!-------------- Begin_making_Dialog_or_Model_Boxes -------------->
+<!--------------------------------------- Begin___Modal_Boxes ---------------->
 
-    <!-------------------- Save_WSfile_Dialog_box -------------->
-    <div  class='notSeen' data-dojo-type='dijit/Dialog' data-dojo-id='sWSfDialog' title='The freezer has changed since last saved in a workspace'>
-      <div class='dijitDialogPaneContentArea'>
-        <p>Would you like to save before loading another workspace?</p>
-      </div>
-      <div class='dijitDialogPaneActionBar'>
-        <button data-dojo-type='dijit/form/Button' type='button' data-dojo-props='onClick:function(){sWSfDialog.hide();}'
-                id='sWSfCancel'>Cancel loading workspace
-        </button>
-        <button data-dojo-type='dijit/form/Button' type='button' id='sWSfSave'>Save current workspace</button>
-        <button data-dojo-type='dijit/form/Button' type='button' id='sWSfOpen'>Open workspace</button>
-      </div>
-    </div><span class='notSeen' id='end_sWSfDialog'></span>
-    <!-------------------- Pasted in -------------------------->
-    <!-------------- mnFlExportGraph_Modal -------------------->
+<!--------------------------------------- Save_WorkSpaceFile_Modal_box ------->
+        <div id='sWSfModalID' class='modal'>
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2>The freezer has changed since last saved in a workspace</h2>
+            </div> 
+            <div class="modal-body">
+              Would you like to save before loading another workspace?
+            </div>
+            <div class="modal-footer">
+              <button id='sWSfSave'>Save current workspace</button>
+              <button id='sWSfOpen'>Open workspace</button>
+            </div>
+          </div>
+        </div>
+<!--------------------------------------- End_WorkSpaceFile_Modal_box -------->
+
+<!--------------------------------------- Export_Graph_Modal_Box ------------->
     <div id='mnFlExportGraphModalID' class='modal'>
       <!-- Modal content -->
       <div class="modal-content" >
@@ -1294,80 +1298,41 @@
           </p>
         </div>
         <div class="modal-footer">
-          <button id='mnFlExportGraphModClose'>Close Dialog</button>
+          <button id='mnFlExportGraphModClose'>Close Modal</button>
         </div>
       </div>
     </div>
-    <!-------------------- end_exampleModalID -------------------->
-    
-    <!-------------------- Save_mnFlExportGraph_Dialog_box -------------->
-    <div  class='notSeen' data-dojo-type='dijit/Dialog' data-dojo-id='mnFlExportGraphDialog'
-          title='Expoert Graphics has not been implemented - for now:'>
-      <div class='dijitDialogPaneContentArea'>
-        <h3>For Mac users</h3>
-        <p>Press the combination [command][shift][4] and use your cursor to select the part of the screen desired.
-          A png file will be saved to the desktop with a name of the form: <br />
-          Screen Shot 2020-10-11 at 3.34.36 PM.png
-        </p>
-        <h3>For PC users</h3>
-        <p>
-          Use Snipping Tool: It is in the Accessories Folder or you can Type "Snip" in the 'search programs and files'
-          field once your hit the 'start button'. Hold and drag the cursor around the area you want to capture. SnippingTool
-          will then allow you to save as a png, gif, jpg or single file html.
-        </p>
-      </div>
-      <div class='dijitDialogPaneActionBar'>
-        <button data-dojo-type='dijit/form/Button' type='button'  id='mnFlExportGraphCancel'
-                data-dojo-props='onClick:function(){mnFlExportGraphDialog.hide();}'>Close Dialog
-        </button>
-      </div>
-    </div>
+<!--------------------------------------- End_ Export_Graph_Modal_Box -------->
 
-    <!-------------------- Export_Stand_Alone_Dialog_box -------------------->
-    <div class='notSeen' data-dojo-type='dijit/Dialog' data-dojo-id='mnFlStandAloneAppDialog'
-         title='Stand alone version of Avida-ED 4.0.16 Beta Testing'>
-      <div class='dijitDialogPaneContentArea'>
-        <h3>For working where there is no internet access: No working Avida-ED 4 versions for off-line use at this time.  </h3>
+<!--------------------------------------- Export_Stand_Alone_Modal_Nox ------->
+<div id='mnFlStandAloneAppModalID' class='modal'>
+  <!-- Modal content -->
+  <div class="modal-content" >
+    <div class="modal-header">
+      <h3>Stand alone version of Avida-ED 4.0.16 Beta Testing</h3>
+    </div> 
+    <div class="modal-body">
+      <h2>For working where there is no internet access: No working Avida-ED 4 versions for off-line use at this time.</h2>
+      <ul>
+        <li class="slim"><a href="pkgs/Avida-ED-Web-PC_2016_0918.exe" target='_blank'>Avida-ED Windows installer for self-hosted version 2016_0918</a></li>
+        <li><a href="pkgs/Avida-ED_Server_Avida-ED.app.zip" target='_blank'>Avida-ED Beta Testing for Mac OS 10.6 and above</a></li>
         <ul>
-          <li class="slim"><a href="pkgs/Avida-ED-Web-PC_2016_0918.exe" target='_blank'>Avida-ED Windows installer for self-hosted version 2016_0918</a></li>
-          <li><a href="pkgs/Avida-ED_Server_Avida-ED.app.zip" target='_blank'>Avida-ED Beta Testing for Mac OS 10.6 and above</a></li>
-          <ul>
-            <li>Unzip the file once it is downloaded</li>
-            <li>Move the file ‘Avida-ED Web.app’ to the Applications Folder</li>
-            <li>. . . Your Mac will complain that the file is from an unknown source, you will have to approve opening it</li>
-          </ul>
-          </li>
+          <li>Unzip the file once it is downloaded</li>
+          <li>Move the file ‘Avida-ED Web.app’ to the Applications Folder</li>
+          <li>. . . Your Mac will complain that the file is from an unknown source, you will have to approve opening it</li>
         </ul>
-      </div>
-      <div class='dijitDialogPaneActionBar'>
-        <button data-dojo-type='dijit/form/Button' type='button'  id='mnFlStandAloneAppDialogCancel'
-                data-dojo-props='onClick:function(){mnFlStandAloneAppDialog.hide();}'>Close Dialog
-        </button>
-      </div>
+        </li>
+      </ul>
     </div>
-
-    <!-------------- need_to_Delete------------------Freezer_Dialog_box -------------->
-    
-    <div id='fzDialog' class='notSeen' data-dojo-type='dijit/Dialog' data-dojo-id='fzDialog' 
-         title='What would you like to save to the freezer?'>
-      <div class='dijitDialogPaneContentArea'>
-        <p>Configuration saves the experiment settings only.</p>
-        <p>Population saves organisms and experiment history.</p>
-      </div>
-      <div class='dijitDialogPaneActionBar'>
-        <button data-dojo-type='dijit/form/Button' type='button' data-dojo-props='onClick:function(){fzDialog.hide();}'
-                id='FzCancel'>Cancel
-        </button>
-        <button data-dojo-type='dijit/form/Button' type='button' id='FzConfigurationButton'>Configuration</button>
-        <span id='FzOrganismSpan'>
-          <button data-dojo-type='dijit/form/Button' type='button' id='FzOrganismButton'>Organism</button>
-        </span>
-        <button data-dojo-type='dijit/form/Button' type='button' id='FzPopulationButton'>Population</button>
-      </div>
+    <div class="modal-footer">
+      <button id='mnFlStandAloneAppModCancel'>Close Modal</button>
     </div>
+  </div>
+</div>
+<!--------------------------------------- End_Export_Stand_Alone_Modal_Nox  -->
 
-    <!-------------------- example_Modal -------------------->
-    <div id='fzDialogModalID' class='modal'>
+<!--------------------------------------- Freezer_Modal_Box------------------->
+    <div id='fzModalID' class='modal'>
       <!-- Modal content -->
       <div class="modal-content" >
         <div class="modal-header">
@@ -1378,38 +1343,19 @@
           <p>Populated Dish saves organisms and experiment history.</p>
         </div>
         <div class="modal-footer">
-          <button id='fzDialogModCancel'>Cancel</button>
-          <button id='fzDialogModSaveConfig'>Configured Dish</button>
-          <span id='fzDialogModFzOrganismSpan'>
-            <button id='fzDialogModSaveOrganism'>Selected Organism</button>
+          <button id='fzModCancel'>Cancel</button>
+          <button id='fzModSaveConfig'>Configured Dish</button>
+          <span id='fzModFzOrganismSpan'>
+            <button id='fzModSaveOrganism'>Selected Organism</button>
           </span>
-          <button id='fzDialogModSaveWorld'>Populated Dish</button>
+          <button id='fzModSaveWorld'>Populated Dish</button>
         </div>
       </div>
     </div>
-    <!-------------------- end_exampleModalID -------------------->
 
-    <!-- example_Modal -->
-    <!-- <div id='exampleModalID' class='modal'> -->
-      <!-- Modal content -->
-      <!-- <div class="modal-content" >
-        <div class="modal-header">
-          <h2>Example Model </h2>
-        </div>
-        <div class="modal-body">
-          <p>Configured Dish saves the experiment settings only.</p>
-          <p>Populated Dish saves organisms and experiment history.</p>
-        </div>
-        <div class="modal-footer">
-          <button id='exampleModCancel'>Cancel</button>
-          <button id='exampleModDiscard'>Discard</button>
-          <button id='exampleModSaveConfig'>Save Configured Dish</button>
-          <button id='exampleModSaveWorld'>Save Populated Dish</button>
-        </div>
-      </div>
-    </div><span id='o____________________________________________________________________________end_exampleModalID___'></span> -->
+<!--------------------------------------- End_Freezer_Modal_Box -------------->
 
-    <!-------------------- newDishModalID -------------------------------------->
+<!--------------------------------------- New_Dish_Modal_Box ----------------->
     <div id='newDishModalID' class='modal'>
       <!-- Modal content -->
       <div class="modal-content">
@@ -1428,29 +1374,9 @@
         </div>
       </div>
     </div>
-    <!-------------------- end_newDishModalID -------------------->
+<!--------------------------------------- End_New_Dish_Modal_Box -------------->
 
-    <!-- This-is-the-dojo-version._The-nonDojo-version-uses-class=modal_____________________New_button_Dialog___ -->
-    <div  data-dojo-type='dijit/Dialog' data-dojo-id='newDialogOld' id="newDialogID"
-          title='Would you like to save or discard the current petri dish before starting a new experiment?'>
-      <div class='dijitDialogPaneContentArea'>
-        <p>Configured Dish saves the experiment settings only.</p>
-        <p>Populated Dish saves organisms and experiment history.</p>
-      </div>
-      <div class='dijitDialogPaneActionBar'>
-        <button data-dojo-type='dijit/form/Button' id='newCancel' type='button' 
-                data-dojo-props="onClick:function() {
-                newDialog.hide(); 
-                dijit.byId('newDialog').set('style', 'display: none;');}"
-                >Cancel
-        </button>
-        <button data-dojo-type='dijit/form/Button' type='button' id='newDiscard'>Discard</button>
-        <button data-dojo-type='dijit/form/Button' type='button' id='newSaveConfig'>Save Configured Dish</button>
-        <button data-dojo-type='dijit/form/Button' type='button' id='newSaveWorld'>Save Populated Dish</button>
-      </div>
-    </div>
-
-    <!-------------------- Need_Ancestor_Modal -------------------------------------->
+<!--------------------------------------- Need_Ancestor_Modal ---------------->
     <div class="modal" id='needAncestorModalID'>
 
       <!-- Modal content -->
@@ -1466,12 +1392,10 @@
         </div>
       </div>
     </div>
-
+<!--------------------------------------- End_Need_Ancestor_Modal ------------>
     
-    <!-- email__Modal -->
+<!--------------------------------------- email__Modal_Box ------------------->
     <div class="modal" id='email_ModalID'>
-
-      <!-- Modal content -->
       <div class="modal-content" >
         <div class="modal-header">
           <h2>Please send us your questions or comments</h2>
@@ -1485,8 +1409,9 @@
         </div>
       </div>
     </div>
+<!--------------------------------------- End_email__Modal_Box --------------->
 
-    <!-------------------- preferences_ModalID -------------------->
+<!--------------------------------------- Preferences_Modal_Box--------------->
     <div class="modal" id='preferences_ModalID'>
 
       <!-- Modal content -->
@@ -1517,8 +1442,8 @@
       </div>
     </div>
     
-    <!-- Delete_after_postLogModalID_works_______Send_Log_Data_by_posting_to_database -->
-    <!-- Saving_session_log_when_no_e_mail_client present -->
+<!-- Delete_after_postLogModalID_works_______Send_Log_Data_by_posting_to_database -->
+<!-- Saving_session_log_when_no_e_mail_client present -->
     <div class='notSeen' data-dojo-type='dijit/Dialog' data-dojo-id='postLogDialog'
          title='Avida-ED Problem Report - Help us make Avida-ED better'>
       <div class='dijitDialogPaneContentArea'>
@@ -1559,7 +1484,7 @@
       <div class='dijitDialogPaneActionBar'></div>
     </div>
     
-    <!-------------------- to_replace_postLogDialog_____________postLogmodalBigID -->
+<!-------------------- to_replace_postLogDialog_____________postLogmodalBigID -->
     <div id='postLogmodalBigID' class='modalBig'>
       <!-- modalBig content -->
       <div class="modalBig-content">
@@ -1577,7 +1502,7 @@
               <input type='text' id='postEmailInput' style='width: 40em' />
             </div>
             <div class='ritThin'>
-              <button data-dojo-type='dijit/form/Button' type='button' id='postLogModalPost'>Send</button>
+              <button id='postLogModalPost'>Send</button>
               <br />
               <label id='postStatus'></label>&nbsp;
               <br />
@@ -1606,9 +1531,9 @@
         </div>
       </div>
     </div>
-    <!-------------------- end_postLogModalID -------------------->
-    <!-------------------- Send_Log_Data_via_e-mail_client_modal -->
+<!--------------------------------------- End_Post_Log_Modal_Box ----------------->
 
+<!--------------------------------------- Send_Log_Data_via_e-mail_client_modal_Box -->
     <div id='sendLogModalID' class='modalBig'>
 
       <div class='modalBig-content'>
@@ -1644,10 +1569,9 @@
       </div>
     </div>
     
-    <!-------------------- aboutAvidaED_ModalID -------------------->
+<!--------------------------------------- About_AvidaED4_Modal_Box --------------->
     <div id='aboutAvidaED_ModalID' class='modalBig'>
 
-      <!-- Modal content -->
       <div id='aboutAvidaED_content' class='modalBig-content'>
         <div id='aboutAvidaED_header' class='modalBig-header'>
           <span class='aboutAvidaEDcloseHldr'>
@@ -2042,29 +1966,34 @@
   <li>Neither the name of the Core Plot Project nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</li>
 </ol>
 <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-            </div><span id='AvidaedaboutdetailBox_end' class='notSeen'></span>
-          </div><span id='AvidaedaboutDtailBxHldr_end' class='notSeen'></span>
-          <br><br>
-          </div><span id='AvidaEDaboutScrll_end'  class='notSeen'></span>
-        </div><span id='AvidaEDaboutModalContainer_end' class='notSeen'></span>
-      </div><span id='modalBig-content_end' class='notSeen'></span>
+    </div><span id='AvidaedaboutdetailBox_end' class='notSeen'></span>
+    </div><span id='AvidaedaboutDtailBxHldr_end' class='notSeen'></span>
+    <br><br>
+    </div><span id='AvidaEDaboutScrll_end'  class='notSeen'></span>
+    </div><span id='AvidaEDaboutModalContainer_end' class='notSeen'></span>
+    </div><span id='modalBig-content_end' class='notSeen'></span>
     </div><span id='aboutAvidaED_ModalID_end' class='notSeen'></span>
 
     
     
-    <!------------ Restart_Avida_with_in_same_browser_Session__Does_NOT_work ------------>
-    <div class='notSeen' data-dojo-type='dijit/Dialog' data-dojo-id='restartAvidaDialog'
-         title='There has been a fatal error in Avida'>
-      <div class='dijitDialogPaneContentArea'>
-        <p>Would you like to save or discard the current petri dish configuration before restarting Avida?</p>
-        <label id='restartMsgLabel' />
-      </div>
-      <div class='dijitDialogPaneActionBar'>
-        <button id='restartAvidaFrzConfig'>Freeze configuration</button>
-        <button id='restartAvidaNow'>Restart Avida (maintains current workspace)</button>
+<!------------ Restart_Avida_with_in_same_browser_Session__Does_NOT_work ------------>
+    <div class="modal" id='restartAvidaDialog'>
+
+      <!-- Modal content -->
+      <div class="modal-content" >
+        <div class="modal-header">
+          <h2>There has been a fatal error in Avida</h2>
+        </div>
+        <div class="modal-body">
+          <p>Would you like to save or discard the current petri dish configuration before restarting Avida?</p>
+        </div>
+        <div class="modal-footer">
+          <button id='restartAvidaFrzConfig'>Freeze configuration</button>
+          <button id='restartAvidaNow'>Restart Avida (maintains current workspace)</button>
+        </div>
       </div>
     </div>
-    <!---------------------- Suggesting-restart-if-not-loaded-after-a-time-delay ------------>
+<!---------------------- Suggesting-restart-if-not-loaded-after-a-time-delay ------------>
     <div id='appReloadDialog' class='modal'>
       <div class='modal-body'>
         <p>Please try re-loading<br />
@@ -2077,23 +2006,9 @@
         </button>
       </div>
     </div>
-    <!-- end_appReloadDialog  -->
+<!--------------------------------------- end_appReloadDialog  -->
 
-    <!------------ delete_when_SaveCSVfileModal_works_______Save_time_recorder_data_to_a_csv_file -->
-    <div class='notSeen' data-dojo-type='dijit/Dialog' data-dojo-id='saveCSVdialog'
-         title='write a file'>
-      <div class='dijitDialogPaneContentArea'>
-        The file name will be 'unknown' in safari
-      </div>
-      <div class='dijitDialogPaneActionBar'>
-        <button data-dojo-type='dijit/form/Button' type='button' data-dojo-props='onClick:function(){ab.hide();}'
-                id='saveCSVdialogCancel'>Cancel
-        </button>
-      </div>
-      <span><button data-dojo-type='dijit/form/Button' type='button' id='sendLogDialogSave'>Save</button></span>
-    </div>
-
-    <!------------ replaces_SaveCSVdialog___Save_time_recorder_data_to_a_csv_file ------------>
+<!--------------------------------------- replaces_SaveCSVdialog___Save_time_recorder_data_to_a_csv_file -->
     <div id='saveCSVdataModalID' class='modal'>
       <!-- Modal content -->
       <div class="modal-content">
@@ -2109,7 +2024,7 @@
           <button id='saveCSVdataModalSave'>Save</button>
         </div>
       </div>
-      <!---------------------- end_saveCSVdataModalID ---------------------->
+<!--------------------------------------- end_saveCSVdataModalID ------------->
     </div>
 
     <!-- yemi: import jQuery: -->
